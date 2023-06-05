@@ -14,9 +14,17 @@ Our project plan is to improve on both solutions by using ultra-wide band (UWB) 
 
 The equipments needed for this projects are:
 
-- UWB anchor: there are four(4) of these UWB anchors, each stand in one corner of the room. The UWB anchors wil emit UWB wave and listen to the response wave
+- UWB anchor: there are four(4) of these UWB anchors, each stand in one corner of the room. The UWB anchors will listen to the UWB emitted from the tag
 - Raspberry Pi 3:  there are four(4), with each attaches to one anchor. The Raspberry Pi handles the data collected from the UWB anchor: it calculate the location of the tag from the response wave. Additionally, it transmits the calculated location of a tag via Ethernet cable back to the server
-- Tag (also called tracker): there are six(6) of them. These are devices that are attached to the body. Each has an IMU inside that is capable of measuring the rotation and acceleration of the body part it attaches to. These data are then transmitted via Wifi back to the server
+  ![UWB anchor and Raspberry Pi 3 underneath it](./images/anchor/IMG_20230604_213424.jpg)
+- Tag (also called tracker): there are six(6) of them. These are devices that are attached to the body. Each has an IMU inside that is capable of measuring the rotation and acceleration of the body part it attaches to. These data are then transmitted via Wifi back to the server. The tag is also responsible for sending out UWB wave to the UWB anchors
+  ![Tag](./images/tag/IMG_20230604_213535.jpg)
+- Good UWB emitter: these are devices that can emits UWB wave very reliably. We use this as baseline to compare how the tag UWB perform with the emitter
+  ![Good UWB emitter](images/high_precision_uwb/IMG_20230604_213924.jpg)
+- High precision IMU: this is the IMU that is super accurate. We attach this to the back of a tag and compare the data between the tag and this accurate IMU, and from there calculate the variance. This is needed for the fusion between IMU and UWB
+  ![High accuracy IMU](images/high_precision_imu/IMG_20230604_214008.jpg)
+- Good IMU: there are 6 of them, and we use these as ground truth to compare how the tags in action work against them. These are commercial products and hence more obtainable
+  ![Good IMU](images/good_imu/imu_good.jpg)
 - Server: a computer that listen to all data from the Raspberry Pi and tags
 
 ## Teams
