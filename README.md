@@ -22,7 +22,7 @@ The equipments needed for this projects are:
 - Good UWB emitter: these are devices that can emits UWB wave very reliably. We use this as baseline to compare how the tag UWB perform with the emitter
   ![Good UWB emitter](images/high_precision_uwb/IMG_20230604_213924.jpg)
 - High precision IMU: this is the IMU that is super accurate. We attach this to the back of a tag and compare the data between the tag and this accurate IMU, and from there calculate the variance. This is needed for the fusion between IMU and UWB
-  ![High accuracy IMU](images/high_precision_imu/IMG_20230604_214008.jpg)
+  <img  src='images/high_precision_imu/IMG_20230604_214008.jpg' width="200"/>
 - Good IMU: there are 6 of them, and we use these as ground truth to compare how the tags in action work against them. These are commercial products and hence more obtainable
   ![Good IMU](images/good_imu/imu_good.jpg)
 - Server: a computer that listen to all data from the Raspberry Pi and tags
