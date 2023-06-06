@@ -58,21 +58,23 @@ Everyone:
 
 Anh Le:
 
-- Set up all IMU tags so that they can sync their time between each other - with small enough difference (less than 500 microseconds between any tags)
-- Set up the UWB to get the data in sync with the data flow from IMUs
+- Implement the IMU tag time syncing - (margins of less than 500 microseconds between any tag)
+- Set up the UWB to get the data in parallel with the data flow from IMUs
 
 Branson Beihl:
 
-- Learned about factor graphs and GTSAM
-- Learned about inverse kinematic methods
+- Characterized the error on the UWB system
 - Fine tune the IMUs' data using data from an accurate IMU
 
 Danny Vo:
 
-- Learned about inverse kinematic methods and PE-DLS
-- Implement & test PE-DLS IK solver from unity to python to use for custom points from Factor Graph
+- Set up ground truth comparison using Vive VR Trackers
+- Implemented & tested PE-DLS IK solver from unity to python to use for custom points from Factor Graph
+
 Michael Shao:
-- Worked with Anh to conceive the IMU sync system.
+
+- Designed the IMU sync system
+- Characterized the error on the IMU system
 - Generate factor graph to sensor fuse the IMU & UWB positional data
 
 ## Repository organization
