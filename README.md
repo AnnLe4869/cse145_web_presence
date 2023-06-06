@@ -10,43 +10,70 @@ The second method is using several very accurate inertial measurement units (IMU
 
 Our project plan is to improve on both solutions by using ultra-wide band (UWB) trackers. Moreover, we plan to use ultra-wide band emitters and receivers to create a closed loop system - that is, a system that uses multiple sources of data to implement robust error correction - minimizing the IMU error build up and greatly extending the possible capture time. This will also allow a user to operate in any space without the need for prior set up and any associated costs.
 
+## Technical details
+
+The mechanics of UWB is as such: we have a device called tag that will periodically emit UWB wave, and we have a device call anchor that will listen to this wave. Each anchor will calculate the distance between the anchor itself and the tag by using the difference in time between when the wave arrive at one end of the anchor to the other. We have 4 anchors in total, and when we know the distance between the tag to each of the anchor, we use triangulation to calculate the exact position of a tag
+
+For IMU, we have one IMU for one tag that can measure rotation angle and acceleration. We use this to calculate the location of the tag at any moment in time. Right now we use 3 tags to locate the position of the lower body. One challenge that we need to overcome is to sync up the time between these 3 tags so that we can know which data corresponds to which of the other tag
+
+Next, we need to calibrate the IMU. We attach a very accurate IMU (we only have one of this) to the back of the tag and plot down the difference between the two. Using this, we can calculate the covariance between them
+
+Next, we try to fuse the data from IMU and UWB together. This is needed to improve the accuracy of both.
+
 ## Equipment details
 
 The equipments needed for this projects are:
 
 - UWB anchor: there are four(4) of these UWB anchors, each stand in one corner of the room. The UWB anchors will listen to the UWB emitted from the tag
 - Raspberry Pi 3:  there are four(4), with each attaches to one anchor. The Raspberry Pi handles the data collected from the UWB anchor: it calculate the location of the tag from the response wave. Additionally, it transmits the calculated location of a tag via Ethernet cable back to the server
-  ![UWB anchor and Raspberry Pi 3 underneath it](./images/anchor/IMG_20230604_213424.jpg)
+
+  <img src="images/anchor/IMG_20230604_213424.jpg" height="300" alt="uwb anchor with raspberry attaches to it"/>
+
 - Tag (also called tracker): there are six(6) of them. These are devices that are attached to the body. Each has an IMU inside that is capable of measuring the rotation and acceleration of the body part it attaches to. These data are then transmitted via Wifi back to the server. The tag is also responsible for sending out UWB wave to the UWB anchors
-  ![Tag](./images/tag/IMG_20230604_213535.jpg)
+
+  <img src='images/tag/IMG_20230604_213535.jpg' height="300" alt="tag which has IMU and UWB emitter"/>
+
 - Good UWB emitter: these are devices that can emits UWB wave very reliably. We use this as baseline to compare how the tag UWB perform with the emitter
-  ![Good UWB emitter](images/high_precision_uwb/IMG_20230604_213924.jpg)
+
+  <img src='images/high_precision_uwb/IMG_20230604_213924.jpg' height="300" alt="good UWB emitter to use as baseline"/>
+
 - High precision IMU: this is the IMU that is super accurate. We attach this to the back of a tag and compare the data between the tag and this accurate IMU, and from there calculate the variance. This is needed for the fusion between IMU and UWB
-  <img  src='images/high_precision_imu/IMG_20230604_214008.jpg' width="200"/>
+
+  <img src='images/high_precision_imu/IMG_20230604_214008.jpg' height="300" alt="very precise imu"/>
+
 - Good IMU: there are 6 of them, and we use these as ground truth to compare how the tags in action work against them. These are commercial products and hence more obtainable
-  ![Good IMU](images/good_imu/imu_good.jpg)
+  
+  <img src='images/good_imu/imu_good.jpg' height="300" alt="good imu"/>
+
 - Server: a computer that listen to all data from the Raspberry Pi and tags
 
 ## Teams
 
 Everyone:
-    - Set-up of the ULoc system environment
-    - Evaluated current hardware used
-    - Examined current codebase for allowing UWB tracking
-    - Gathered visual and quantitative data on UWB positions
+
+- Set-up of the ULoc system environment
+- Evaluated current hardware used
+- Examined current codebase for allowing UWB tracking
+- Gathered visual and quantitative data on UWB positions
+
 Anh Le:
-    - Set up all IMU tags so that they can sync their time between each other - with small enough difference (less than 500 microseconds between any tags)
-    - Set up the UWB to get the data in sync with the data flow from IMUs
+
+- Set up all IMU tags so that they can sync their time between each other - with small enough difference (less than 500 microseconds between any tags)
+- Set up the UWB to get the data in sync with the data flow from IMUs
+
 Branson Beihl:
-    - Learned about factor graphs and GTSAM
-    - Learned about inverse kinematic methods
-    - Fine tune the IMUs' data using data from an accurate IMU
+
+- Learned about factor graphs and GTSAM
+- Learned about inverse kinematic methods
+- Fine tune the IMUs' data using data from an accurate IMU
+
 Danny Vo:
-    - Learned about inverse kinematic methods and PE-DLS
-    - Implement & test PE-DLS IK solver from unity to python to use for custom points from Factor Graph
+
+- Learned about inverse kinematic methods and PE-DLS
+- Implement & test PE-DLS IK solver from unity to python to use for custom points from Factor Graph
 Michael Shao:
-    - Worked with Anh to conceive the IMU sync system.
-    - Generate factor graph to sensor fuse the IMU & UWB positional data
+- Worked with Anh to conceive the IMU sync system.
+- Generate factor graph to sensor fuse the IMU & UWB positional data
 
 ## Repository organization
 
