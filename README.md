@@ -79,10 +79,11 @@ Michael Shao:
 
 ## Repository organization
 
-The codes for this project are separated into multiple small repos:
+The codes for this project are separated into multiple small repos. Please seek invitation to get access to these repos from [WCSNG @ UC San Diego](https://wcsng.ucsd.edu/)
 
-- ULoc_Data_Collect_Sync: this repository is the code to run the server. It starts the server, listen to the data from raspberry pi and the tag, and write them down to log files
-- ULoc_ESP_UDP: this repository is the code that run in the tag. Responsible to enable the wifi transmission, listen to UWB, listen to the IMU
-- uloc_firmware: this repository contains code that run the anchor
-- data_collection_template: contains the code that run the raspberry pi
-- uloc_post_processing: contains some algorithms and code to process the UWB data
+- [ULoc_Data_Collect_Sync](https://github.com/ucsdwcsng/ULoc_Data_Collect_Sync): this repository is the code to run the server. It starts the server, listen to the data from raspberry pi and the tag, and write them down to log files
+- [ULoc_ESP_UDP](https://github.com/ucsdwcsng/ULoc_ESP_UDP): this repository is the code that run in the tag. Responsible to enable the wifi transmission, listen to UWB, listen to the IMU
+- [uloc_firmware](https://github.com/ucsdwcsng/uloc_firmware): this repository contains code that run the anchor
+- [data_collection_template](https://github.com/ucsdwcsng/data_collection_template): contains the code that run the raspberry pi
+- [uloc_post_processing](https://github.com/ucsdwcsng/uloc_post_processing): contains some algorithms and code to process the UWB data
+- [ULoc-IMU_Fusion](https://github.com/ucsdwcsng/ULoc-IMU_Fusion): contain algorithm to fuse data from IMU and UWB
