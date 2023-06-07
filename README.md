@@ -12,7 +12,7 @@ Our project plan is to improve on both solutions by using ultra-wide band (UWB) 
 
 ## Foreword
 
-For this project to happen, we are grateful to collaborate with UCSD's research group, Wireless Comunications, Systems and Networking (WCSNG), to use their UWB system called ULoc. In addition, our implementation of full body tracking uses PE-DLS from the work of Zeng, Q., Zheng, G. and Liu, Q. in which said code was generously provided in their code repository.
+For this project to happen, we are grateful to collaborate with UCSD's research group, Wireless Comunications, Systems and Networking (WCSNG), and to have the opportunity to work with their UWB system called ULoc. In addition, our implementation of full body tracking uses PE-DLS from the work of Zeng, Q., Zheng, G. and Liu, Q. in which said code was generously provided in their code repository.
 
 ## Technical details
 
@@ -72,6 +72,7 @@ Anh Le:
 Branson Beihl:
 
 - Characterized positional errors on the UWB system
+- Collected test data for the IMU characterization
 - Fine tuned the IMUs' data using data from the accurate IMU
 
 Danny Vo:
