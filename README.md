@@ -97,6 +97,8 @@ The codes for this project are separated into multiple small repositories. Pleas
 - [uloc_post_processing](https://github.com/ucsdwcsng/uloc_post_processing): Contains some algorithms and code to process the UWB data for use in other repositories.
 - [ULoc-IMU_Fusion](https://github.com/ucsdwcsng/ULoc-IMU_Fusion): Contains algorithm to turn ULoc and IMU fused data into a pose in the form of a skeleton using PE-DLS.
 
+Our group has created a repository to contain the modifications of PE-DLS within `ULoc-IMU_Fusion` and modified code within `ULoc_ESP_UDP` and `ULoc_Data_Collect_Sync`.
+
 ## Works Cited
 Minghui Zhao, Tyler Chang, Aditya Arun, Roshan Ayyalasomayajula, Chi Zhang, and Dinesh Bharadia. 2021. ULoc: Low-Power, Scalable and cm-Accurate UWB-Tag Localization and Tracking for Indoor Applications. Proc. ACM Interact. Mob. Wearable Ubiquitous Technol. 5, 3, Article 140 (Sept 2021), 31 pages. https://doi.org/10.1145/3478124
 
